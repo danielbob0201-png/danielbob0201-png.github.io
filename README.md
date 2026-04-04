@@ -1,17 +1,15 @@
-# Academic Pages
+# Academic Pages — danielbob0201-png
 **Academic Pages is a GitHub Pages template for personal and professional portfolio-oriented websites.**
 
 ![Academic Pages template example](images/homepage.png "Academic Pages template example")
 
 # Getting Started
 
-1. Register a GitHub account if you don't have one and confirm your e-mail (required!)
-1. Click the "Use this template" button in the top right.
-1. On the "New repository" page, enter your public repository name as "[your GitHub username].github.io", which will also be your website's URL.
-1. Set site-wide configuration and add your content.
-1. Upload any files (like PDFs, .zip files, etc.) to the `files/` directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.
-1. Check status by going to the repository settings, in the "GitHub pages" section
-1. (Optional) Use the Jupyter notebooks or python scripts in the `markdown_generator` folder to generate markdown files for publications and talks from a TSV file.
+1. Customize site-wide configuration in `_config.yml` and double check that the `url` is set to `https://danielbob0201-png.github.io` and that `repository` reflects `danielbob0201-png/danielbob0201-png.github.io`.
+1. Edit `_pages/about.md` and other Markdown files in `_publications/`, `_talks/`, `_portfolio/`, and `_teaching/` to add your own content.
+1. Upload extra files (like PDFs, .zip files, etc.) to the `files/` directory.
+1. Check deployment status by going to **Settings → Pages** in your repository.
+1. (Optional) Use the Jupyter notebooks or Python scripts in the `markdown_generator` folder to generate markdown files for publications and talks from a TSV file.
 
 See more info at https://academicpages.github.io/
 
@@ -19,7 +17,7 @@ See more info at https://academicpages.github.io/
 
 When you are initially working on your website, it is very useful to be able to preview the changes locally before pushing them to GitHub. To work locally you will need to:
 
-1. Clone the repository and made updates as detailed above.
+1. Clone the repository and make updates as detailed above.
 
 ### Using a different IDE
 1. Make sure you have ruby-dev, bundler, and nodejs installed
