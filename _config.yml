@@ -17,7 +17,7 @@ repository               : "danielbob0201-png/danielbob0201-png.github.io"
 
 # Site Author
 author:
-)->  # Biographic information
+  # Biographic information
   avatar           : "profile.png"
   name             : "Junteng Liu"
   pronouns         :
