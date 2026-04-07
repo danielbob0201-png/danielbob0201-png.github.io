@@ -3,25 +3,29 @@
 # This config file is meant for settings that affect your entire site, values
 # which you are expected to set up once and rarely need to edit after that.
 # For technical reasons, this file is *NOT* reloaded automatically when you use
-# jekyll serve. If you change this file, please restart the server process.
+# `jekyll serve -l -H localhost`. If you change this file, please restart the
+# server process.
 
 # Basic Site Settings
 locale                   : "en-US"
+site_theme               : "default"
 title                    : "Junteng Liu"
 title_separator          : "-"
 name                     : &name "Junteng Liu"
-description              : &description "PhD Candidate in Computer Science at HKUST"
+description              : &description "PhD Candidate in Computer Science at HKUST — NLP, LLM Reasoning, Hallucination in VLMs, Truthfulness & Interpretability"
 url                      : https://danielbob0201-png.github.io
 baseurl                  : ""
 repository               : "danielbob0201-png/danielbob0201-png.github.io"
 
-# Site Author
+# Site Author - The following control what appear as part of the author content on the side bar.
+#               If a field is blank the icon and link will not appear, otherwise it will be shown.
+#               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
   avatar           : "profile.png"
   name             : "Junteng Liu"
   pronouns         :
-  bio              : "PhD Candidate in Computer Science at HKUST NLP Group. Researching NLP and Machine Learning, with a focus on LLM Reasoning, Reinforcement Learning, Hallucination in Vision-Language Models, and LLM Truthfulness."
+  bio              : "PhD Candidate at HKUST NLP Group. Research interests: LLM Reasoning & RL, Hallucination in Vision-Language Models, LLM Truthfulness & Interpretability."
   location         : "Hong Kong"
   employer         : "Hong Kong University of Science and Technology"
   uri              :
@@ -31,12 +35,15 @@ author:
   academia         :
   arxiv            :
   googlescholar    : "https://scholar.google.com/citations?hl=en&user=tbK9jl4AAAAJ&view_op=list_works&sortby=pubdate"
+  inspire-hep      :
   impactstory      :
   orcid            :
   semantic         :
+  ssrn             :
   pubmed           :
   researchgate     :
   scopus           :
+  zotero           :
 
   # Repositories and software development
   bitbucket        :
@@ -73,7 +80,7 @@ author:
   youtube          :
   zhihu            :
 
-# Publication Category
+# Publication Category - The following the list of publication categories and their headings
 publication_category:
   books:
     title: 'Books'
@@ -97,25 +104,28 @@ comments:
     server               :
   facebook:
     appid                :
-  staticman:
-    allowedFields          : ['name', 'email', 'url', 'message']
-    branch                 : "gh-pages"
-    commitMessage          : "New comment."
-    filename               : comment-{@timestamp}
-    format                 : "yml"
-    moderation             : true
-    path                   : "_data/comments/{options.slug}"
-    requiredFields         : ['name', 'email', 'message']
-    transforms:
-      email                : "md5"
-    generatedFields:
-      date:
-        type               : "date"
-        options:
-          format           : "iso8601"
+    num_posts            :
+    colorscheme          :
+staticman:
+  allowedFields          : ['name', 'email', 'url', 'message']
+  branch                 : "gh-pages"
+  commitMessage          : "New comment."
+  filename               : comment-{@timestamp}
+  format                 : "yml"
+  moderation             : true
+  path                   : "_data/comments/{options.slug}"
+  requiredFields         : ['name', 'email', 'message']
+  transforms:
+    email                : "md5"
+  generatedFields:
+    date:
+      type               : "date"
+      options:
+        format           : "iso8601"
 atom_feed:
   hide                   : false
   path                   :
+
 
 # SEO Related
 google_site_verification :
@@ -123,25 +133,33 @@ bing_site_verification   :
 alexa_site_verification  :
 yandex_site_verification :
 
+
 # Social Sharing
 twitter:
-  username               :
+  username               : "junteng88716710"
 facebook:
   username               :
   app_id                 :
   publisher              :
 og_image                 :
 og_description           :
+# For specifying social profiles
+# - https://developers.google.com/structured-data/customize/social-profiles
 social:
   type                   : Person
   name                   : "Junteng Liu"
-  links: []
+  links:
+    - "https://github.com/Vicent0205"
+    - "https://scholar.google.com/citations?hl=en&user=tbK9jl4AAAAJ"
+    - "https://x.com/junteng88716710"
+
 
 # Analytics
 analytics:
   provider               : "false"
   google:
     tracking_id          :
+
 
 # Reading Files
 include:
@@ -165,6 +183,8 @@ exclude:
   - Dockerfile
   - Gemfile
   - Gruntfile.js
+  - gulpfile.js
+  - LICENSE
   - local
   - log
   - node_modules
@@ -179,12 +199,14 @@ keep_files:
 encoding: "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
+
 # Conversion
 markdown: kramdown
 highlighter: rouge
 lsi: false
 excerpt_separator: "\n\n"
 incremental: false
+
 
 # Markdown Processing
 kramdown:
@@ -196,6 +218,7 @@ kramdown:
   toc_levels: 1..6
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
+
 
 # These settings control the types of collections used by the template
 collections:
@@ -211,6 +234,7 @@ collections:
   talks:
     output: true
     permalink: /:collection/:path/
+
 
 # These settings control how pages and collections are included in the site
 defaults:
@@ -268,14 +292,19 @@ defaults:
       author_profile: true
       share: true
 
+
 # Sass/SCSS
 sass:
   sass_dir: _sass
-  style: compressed
+  style: compressed # https://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
+
 
 # Outputting
 permalink: /:categories/:title/
-timezone: Etc/UTC
+# paginate: 5 # amount of posts to show
+# paginate_path: /page:num/
+timezone: Etc/UTC # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
 
 # Plugins
 plugins:
@@ -286,6 +315,7 @@ plugins:
   - jekyll-redirect-from
   - jemoji
 
+# Mimic GitHub Pages with --safe
 whitelist:
   - jekyll-feed
   - jekyll-gist
@@ -293,6 +323,7 @@ whitelist:
   - jekyll-sitemap
   - jekyll-redirect-from
   - jemoji
+
 
 # Archives
 category_archive:
@@ -302,7 +333,9 @@ tag_archive:
   type: liquid
   path: /tags/
 
+
 # HTML Compression
+# - https://jch.penibelst.de/
 compress_html:
   clippings: all
   ignore:
